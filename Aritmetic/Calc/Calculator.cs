@@ -20,7 +20,7 @@ using System.Text;
             _data = data;
             _sum = setSum(_data);
             _length = data.Length;
-            _mean = setMean(_data);
+            _mean = setMean();
             _standardDiv = setStandardDiv(_data);
             setFrequenies(_data);
         }
@@ -37,7 +37,7 @@ using System.Text;
             return sum;
         }
 
-        private double setMean(double[] data)
+        private double setMean()
         {
             return _sum / _length;
         }
