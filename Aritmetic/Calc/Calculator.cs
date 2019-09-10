@@ -108,7 +108,7 @@ using System.Text;
 
             foreach (KeyValuePair<int, int> item in _dict)
             {
-                Console.WriteLine($"{item.Key}-{item.Key+9}   |  {item.Value}");
+                Console.WriteLine($"{item.Key}<{item.Key+10}   |  {item.Value}");
             }
         }
         #endregion
