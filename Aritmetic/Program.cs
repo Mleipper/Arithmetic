@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Arithmetic.Calc;
+using System;
 
 namespace Aritmetic
 {
@@ -6,7 +7,11 @@ namespace Aritmetic
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+
+            double[] data = { 1, 2, 3 };
+            var calc = new Calculator(data);
+            Console.WriteLine(calc.getStatsPrintOut());
+            Console.ReadKey();
         }
     }
 }
