@@ -53,10 +53,12 @@ using System.Text;
 
         }
 
+        
         public void setFrequenies(double[] data)
         {
             foreach (var item in data)
             {
+                //compare midpoint first as roughly halfs the amount of comparisons 
                 if (item < 50)
                 {
                     if (item < 10)
