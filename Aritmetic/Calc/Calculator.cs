@@ -11,8 +11,8 @@ using System.Text;
         private readonly double _mean;
         private readonly int _length;
         private readonly double _standardDiv;
-        private IDictionary<string, int> _dict = new Dictionary<string, int>() {{"0<10",0 },{"10<20",0 },{"20<30",0 },{"30<40",0 },{"40<50",0 },
-            {"50<60",0 },{"60<70",0 },{"70<80",0 },{"80<90",0 },{"90<=100",0 } };
+        private IDictionary<int, int> _dict = new Dictionary<int, int>() {{0,0 },{10,0 },{20,0 },{30,0 },{40,0 },
+            {50,0 },{60,0 },{70,0 },{80,0 },{90,0 }, { 100,0} };
 
 
         public Calculator(double[] data)
@@ -53,56 +53,18 @@ using System.Text;
 
         }
 
-        
+        public int roundDown(double item)
+        {
+            return  ((int)item / 10) * 10;
+        }
         public void setFrequenies(double[] data)
         {
             foreach (var item in data)
             {
-                //compare midpoint first as roughly halfs the amount of comparisons 
-                if (item < 50)
-                {
-                    if (item < 10)
-                    {
-                        _dict["0<10"] += 1;
-                    }
-                    else if (item < 20)
-                    {
-                        _dict["10<20"] += 1;
-                    }
-                    else if (item < 30)
-                    {
-                        _dict["20<30"] += 1;
-                    }
-                    else if (item < 40)
-                    {
-                        _dict["30<40"] += 1;
-                    }
-                    else {
-                        _dict["40<50"] += 1;
-                    }
-                }
-                else {
-                    if (item < 60)
-                    {
-                        _dict["50<60"] += 1;
-                    }
-                    else if (item < 70)
-                    {
-                        _dict["60<70"] += 1;
-                    }
-                    else if (item < 80)
-                    {
-                        _dict["70<80"] += 1;
-                    }
-                    else if (item < 90)
-                    {
-                        _dict["80<90"] += 1;
-                    }
-                    else {
-                        _dict["90<=100"] += 1;
-                    }
+                var rounded = roundDown(item);
 
-                }
+                _dict[rounded] += 1;
+
             }
 
         }
@@ -144,9 +106,9 @@ using System.Text;
             Console.WriteLine("    Bin |   Frequency  ");
             Console.WriteLine("------------------------");
 
-            foreach (KeyValuePair<string, int> item in _dict)
+            foreach (KeyValuePair<int, int> item in _dict)
             {
-                Console.WriteLine($"{item.Key}   |  {item.Value}");
+                Console.WriteLine($"{item.Key}-{item.Key+9}   |  {item.Value}");
             }
         }
         #endregion
