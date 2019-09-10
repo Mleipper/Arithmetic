@@ -15,6 +15,7 @@ namespace Aritmetic
 
                 double Value;
                 double[] data2;
+                //linq to get file data
                 var values = File.ReadAllLines("SampleData.csv")
                 .SelectMany(a => a.Split(',')
                 .Select(str => double.TryParse(str, out Value) ? Value : 0));
