@@ -92,9 +92,9 @@ using System.Text;
         public string getStatsPrintOut()
         {
             var msg = $"The array is of length: {_length}" +
-                $" Its sum is: {_sum} "+
-                $" With a Mean of: {_mean} " +
-                $"and a standard divivation of : {_standardDiv}";
+                $"{Environment.NewLine}Its sum is: {_sum} "+
+                $"{Environment.NewLine}With a Mean of: {_mean} " +
+                $"{Environment.NewLine}and a standard divivation of : {_standardDiv}";
 
                 //({nowEst.Subtract(mostRecentFile).TotalMinutes:N0} mins ago). Row count: {rowCount:N0}";
             return msg;
