@@ -11,6 +11,9 @@ namespace Aritmetic
             double[] data = { 1, 2, 3 };
             var calc = new Calculator(data);
             Console.WriteLine(calc.getStatsPrintOut());
+            Console.WriteLine();
+            calc.printBininfo();
+
             Console.ReadKey();
         }
     }
